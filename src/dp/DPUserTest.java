@@ -14,10 +14,10 @@ import java.util.regex.Pattern;
 import javax.swing.JFrame;
 
 public class DPUserTest {
-	
+	/**
+	 * 主要功能是抓取大众点评页面，获取部分参数
+	 */
 	private static String name = "";
-	
-
 	public String getHtmlContent(String htmlurl) {  
         URL url;  
         String temp;  
@@ -30,7 +30,7 @@ public class DPUserTest {
             }  
             in.close();  
         } catch (final MalformedURLException me) {  
-            System.out.println("       URL  ʽ      !");  
+            System.out.println("URL错误!");  
             me.getMessage();  
         } catch (final IOException e) {  
             e.printStackTrace();  
@@ -40,6 +40,7 @@ public class DPUserTest {
 	
 	public static void main(String[] args) throws InterruptedException {  
 		DPUserTest t = new DPUserTest();  
+		//路径是大众点评深圳同城活动美食页面
         String aa = t.getHtmlContent("http://s.dianping.com/event/shenzhen/c1");  
         List<String> bba = t.getNews(aa);  
         for (String s : bba) {  
@@ -89,6 +90,9 @@ public class DPUserTest {
 		return flag;
 	}
 
+	/**
+	 * 最主要的方法，正则筛选出抓取信息中的有用字符串 
+	 */
 	private List<String> getNews(String s) {
 		String regex = "<a.*?</a>"; 
         Pattern pa = Pattern.compile(regex, Pattern.DOTALL); 
