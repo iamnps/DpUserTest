@@ -1,32 +1,23 @@
 package email;
-import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 
-import javax.activation.DataHandler;
-import javax.activation.FileDataSource;
 import javax.mail.Address;
-import javax.mail.BodyPart;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.MimeUtility;
-
-import com.sun.mail.smtp.SMTPSaslAuthenticator;
-
 
 public class TestEmail {
 	static int stmpServerSSLPort = 465;
     static int stmpServerPort = 25;
     static String stmpServerDomain = "smtpdm.aliyun.com";
-    static String emailName = "registration@oomi.io";
-    static String password = "fengtang123";
+    static String emailName = "xxxx";
+    static String password = "xxx";
     static Properties properties = null;
 
     static String nickname = null;
