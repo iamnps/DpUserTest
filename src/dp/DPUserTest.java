@@ -86,7 +86,7 @@ public class DPUserTest {
     }
 	
 	private static boolean getFlag(String str){
-		boolean flag = str.indexOf("【体验券】") != -1 || str.indexOf("同城聚会") != -1 || str.indexOf("专享") != -1;
+		boolean flag = str.indexOf("【体验券】") != -1 || str.indexOf("同城聚会") != -1 || str.indexOf("专享") != -1 || str.indexOf("【") != -1;
 		return flag;
 	}
 
