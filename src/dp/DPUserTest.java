@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -53,11 +54,7 @@ public class DPUserTest {
         }
 		
 		
-    	boolean flag = false;
     	do{
-    		if(flag){
-    			break;
-    		}
             String content = t.getHtmlContent("http://s.dianping.com/event/shenzhen/c1");  
             List<String> a = t.getNews(content);  
             for (String s : a) {  
@@ -75,7 +72,20 @@ public class DPUserTest {
                 		});
         				
             			System.out.println(str + new Date());
-            			flag = true;
+            			name = str;
+            			
+            			
+            	        StringBuffer url = new StringBuffer("http://192.168.1.128:8080/core/push/test/push/ios");
+            	        url.append("?title="+str);
+            	        try {
+            	            URL obj = new URL(url.toString());
+            	            HttpURLConnection conn = (HttpURLConnection) obj.openConnection();
+            	            conn.setRequestMethod("GET");
+            	            int code = conn.getResponseCode();
+            	            System.out.print(code);
+            	        } catch (IOException e) {
+            	            e.printStackTrace();
+            	        }
             		}
             		Thread.sleep(5000);
             		System.out.println("nothing!!" + new Date());
