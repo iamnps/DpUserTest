@@ -76,13 +76,13 @@ public class DPUserTest {
             			
             			
             	        StringBuffer url = new StringBuffer("http://192.168.1.128:8080/core/push/test/push/ios");
-            	        url.append("?title="+str);
+            	        url.append("?title="+StringUtil.string2Unicode(str));
             	        try {
             	            URL obj = new URL(url.toString());
             	            HttpURLConnection conn = (HttpURLConnection) obj.openConnection();
             	            conn.setRequestMethod("GET");
             	            int code = conn.getResponseCode();
-            	            System.out.print(code);
+            	            System.out.println(code);
             	        } catch (IOException e) {
             	            e.printStackTrace();
             	        }
